@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>rAFTimer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script type="module">
+    import Timer from './rAFTimer.js';
+
+    // Initialize timer
+    const counter = Timer({
+      countdown: false, // default `True`
+      delay: 10,
+      onRun: handleTimerRun,
+      onEnd: handleTimerEnd,
+    });
+
+    // Start the timer once
+    counter.start();
+
+    /**
+     * Fired on every second
+     * @param  {Number} time Current time
+     */
+    function handleTimerRun(time) {
+      console.log(time);
+    }
+
+    /**
+     * Fired when the timer is finished
+     * @param  {Number} time Current time
+     */
+    function handleTimerEnd(time) {
+      console.log('Timer finished', time);
+    }
+  </script>
+</body>
+
+</html>
